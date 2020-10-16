@@ -12,12 +12,16 @@ fun main(args: Array<String>) {
     val b = Sayhello()
     a.hello()
     b.hello()
+    val c = 9;
+    val d = 10;
+    val e = c*d;
+    println(e)
 }
 
 // 類別 類別名稱{} kolint跟java是可以合併再一起的，所以也可以使用java的東西
 class Ksayhellow{
 //  方法 方法名稱
     fun hello(){
-        println("Starbrust Stream kolint")
+        println("Starbrust Stream kolint yayaya")
     }
 }
