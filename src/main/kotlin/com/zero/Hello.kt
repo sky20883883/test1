@@ -16,12 +16,22 @@ fun main(args: Array<String>) {
     val d = 10;
     val e = c*d;
     println(e)
+    val bmi = Kbmi(110.5f,1.7f,"Jeson")
+    println(bmi.name+"'s bmi is "+bmi.bmi())
+
+}
+
+class Kbmi(var weight:Float,var height:Float,var name:String){
+    //bmi這個方案執行完會回傳浮點數
+    fun bmi():Float{
+        val bmi = weight / (height*height)
+        return bmi
+    }
 }
 
 // 類別 類別名稱{} kolint跟java是可以合併再一起的，所以也可以使用java的東西
 class Ksayhellow{
 //  方法 方法名稱
-    fun hello(){
-        println("Starbrust Stream kolint yayaya")
-    }
-}
+    fun hello() {
+    println("Starbrust Stream kolint")
+}}
