@@ -1,4 +1,7 @@
 package com.zero
+
+import java.util.*
+
 // fun 方法名稱(字串名稱:字串的陣列) #main+TAB=快速輸入
 fun main(args: Array<String>) {
 //    分號可加可不加
@@ -12,16 +15,27 @@ fun main(args: Array<String>) {
     val b = Sayhello()
     a.hello()
     b.hello()
+
     val c = 9;
     val d = 10;
     val e = c*d;
     println(e)
+/*    或者val bmi = Kbmi(name = "Jeson",weight = 110.5f)*/
     val bmi = Kbmi(110.5f,1.7f,"Jeson")
-    println(bmi.name+"'s bmi is "+bmi.bmi())
+    println("So "+bmi.name+"'s bmi is "+bmi.bmi())
+
+/*    kolint的讀取輸入方法
+    val scanner = Scanner(System.`in`)
+    var f = scanner.next()*/
 
 }
-
-class Kbmi(var weight:Float,var height:Float,var name:String){
+//name:String="" 的意思是name的字串有初始值null
+class Kbmi(var weight:Float,var height:Float,var name:String=""){
+    init {
+        println(name+"'s bmi is "+bmi())
+    }
+//    次要建構值
+//    constructor(weight: Float,height: Float,name:String,age:Float):this(weight,height,name)
     //bmi這個方案執行完會回傳浮點數
     fun bmi():Float{
         val bmi = weight / (height*height)
