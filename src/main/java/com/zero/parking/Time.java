@@ -1,17 +1,32 @@
-package com.zero;
+package com.zero.parking;
 
+import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
 public class Time {
     public static void main(String[] args) {
+        LocalDateTime enter=
+                LocalDateTime.of(2020,10,29,14,0);
+        LocalDateTime out = LocalDateTime.now();
+        Car car =new Car("ABC-0023",enter);
+        car.setOut(out);
+        System.out.println(car.getOutTime());
+        System.out.println(car.getOutTimeHours());
+/*        long money = (long)Math.ceil(car.getOutTime()/60.0);
+        System.out.println(money);
+        System.out.println(30*money);*/
+        System.out.println(car.money());
+
+/*        java8TimeTest();
+        oldtime();*/
+    }
+
+    private static void java8TimeTest() {
         Instant instant =Instant.now();
         System.out.println(instant);
 
@@ -27,7 +42,6 @@ public class Time {
         LocalDateTime other =LocalDateTime.of(2018,11,23,8,0);
         System.out.println(other);
         System.out.println(formatter.format(other));
-/*        oldtime();*/
     }
 
     private static void oldtime() {
