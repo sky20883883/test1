@@ -10,16 +10,20 @@ fun main(args: Array<String>) {
     var read = scanner.next()
     val parkingLot = HashMap<String,Car>()
     var enter: LocalDateTime =
-            LocalDateTime.of(2020,10,29,14,0)
+            LocalDateTime.of(2020,10,30,14,0)
     var out: LocalDateTime =
-            LocalDateTime.of(2020,10,29,16,0)
+            LocalDateTime.now()
     var car= Car("CCC-8763",enter);
     parkingLot.put(car.id,car)
-    car=Car("XXX-1234",enter.plusMinutes(15))
+
+    car=Car("XXX-1234",enter.plusHours(4))
     parkingLot.put(car.id,car)
+
     car= parkingLot.get(read)!!
     car.out=out
-    println("${car.id} duration: ${car.outTime()}. You should pay ${car.money()} dollars")
+    println("${car.id} duration: ${car.outTime()} Minutes. You should pay ${car.money()} dollars")
+    parkingLot.remove(car.id)
+    println(parkingLot.size)
 
 
 
