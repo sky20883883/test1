@@ -1,29 +1,50 @@
 package com.zero
 
+import java.time.LocalDateTime
 import java.util.*
+import kotlin.collections.HashMap
 
 fun main(args: Array<String>) {
-    //ManyTester()
-    val scanner=Scanner(System.`in`)
+    var scanner=Scanner(System.`in`)
+    println("Please input your car number:")
+    var read = scanner.next()
+    val parkingLot = HashMap<String,Car>()
+    var enter: LocalDateTime =
+            LocalDateTime.of(2020,10,29,14,0)
+    var out: LocalDateTime =
+            LocalDateTime.of(2020,10,29,16,0)
+    var car= Car("CCC-8763",enter);
+    parkingLot.put(car.id,car)
+    car=Car("XXX-1234",enter.plusMinutes(15))
+    parkingLot.put(car.id,car)
+    car= parkingLot.get(read)!!
+    car.out=out
+    println("${car.id} duration: ${car.outTime()}. You should pay ${car.money()} dollars")
+
+
+
+//ManyTester()
+    //mutableListOfTester()
+}
+
+private fun mutableListOfTester() {
+    val scanner = Scanner(System.`in`)
     println("Pleases enter students scores:")
-    var enter =0
-    var scorein= mutableListOf<Int>()
-    while (enter!=-1) {
-        enter =scanner.nextInt()
+    var enter = 0
+    var scorein = mutableListOf<Int>()
+    while (enter != -1) {
+        enter = scanner.nextInt()
         scorein.add(enter)
         println("Enter!")
-        if(enter==-1){
-            var a =scorein.size
+        if (enter == -1) {
+            var a = scorein.size
             scorein.remove(-1)
-            break}
+            break
+        }
     }
-    for(i in scorein){
+    for (i in scorein) {
         println(i)
     }
-
-
-
-
 }
 
 /*class scores(var s:Int){
